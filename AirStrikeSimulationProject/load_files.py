@@ -20,25 +20,6 @@ def load_json(file_path):
     return data
 
 
-# # field names
-# fields = ['Name', 'Branch', 'Year', 'CGPA']
-#
-# # data rows of csv file
-# rows = [['Nikhil', 'COE', '2', '9.0'],
-#         ['Sanchit', 'COE', '2', '9.1'],
-#         ['Aditya', 'IT', '2', '9.3'],
-#         ['Sagar', 'SE', '1', '9.5'],
-#         ['Prateek', 'MCE', '3', '7.8'],
-#         ['Sahil', 'EP', '2', '9.1']]
-#
-# with open('GFG', 'w') as f:
-#     # using csv.writer method from CSV package
-#     write = csv.writer(f)
-#
-#     write.writerow(fields)
-#     write.writerows(rows)
-
-
 def write_final_table_to_csv(all_missions):
     with open('mission_table.csv', 'w',) as file:
         writer = csv.writer(file)
@@ -51,31 +32,6 @@ def write_final_table_to_csv(all_missions):
                              m.pilote.skill_level, m.aircraft.speed, m.aircraft.fuel_capacity, round(m.mission_score, 2)])
     print("Yes, we did it!!!")
 
-# class Pilote:
-#         self.name = name
-#         self.skill_level = skill_level
-#         self.skill_score = 0
-
-# class AirCraft:
-#         self.type = type
-#         self.speed = speed
-#         self.fuel_capacity = fuel_capacity
-#
-# class CityTarget:
-#     def __init__(self, city,  priority, distance, weather):
-#         self.city = city
-#         self.distance = distance
-#         self.weather = weather
-#         self.weather_score = 0
-#         self.priority = priority
-#         self.priority_score = 0
-#
-# class Mission:
-#     def __init__(self, city_target=None, aircraft=None, pilote=None):
-#         self.city_target = city_target
-#         self.aircraft = aircraft
-#         self.pilote = pilote
-#         self.mission_score = 0
 
 # File paths
 pilots_path = 'pilots.json'

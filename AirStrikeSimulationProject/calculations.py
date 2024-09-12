@@ -17,9 +17,11 @@ def haversine_distance(lat1, lon1, lat2, lon2):
     distance = r * c
     return distance
 
+# Get JLM's coordinates
 JLM_coordinates_url = "http://api.openweathermap.org/geo/1.0/direct?q=Jerusalem,israel&APPID=67426bc9e51f120382ea5da6ca877eef"
 JLM_coordinates_req = (requet_to_json(JLM_coordinates_url))[0]
 JLM_lat_lon = (JLM_coordinates_req['lat'], JLM_coordinates_req['lon'])
+
 
 # calc all cities distance
 def calc_all_cities_distance(jlm_lat, jlm_lon, cities_lat_lon):
@@ -30,12 +32,12 @@ def calc_all_cities_distance(jlm_lat, jlm_lon, cities_lat_lon):
 
 
 # find all cities distances
-# city_targets_path = 'air_strike_targets.csv'
-# all_cities_coordinates = get_city_lat_lon(load_files.csv_read_dict(city_targets_path))
-# all_distances_dict = calc_all_cities_distance(JLM_lat_lon[0], JLM_lat_lon[1], all_cities_coordinates)
-# print(all_distances_dict)
-#
-# # dump the distances to json file, so that i won't have to use api requests
-# with open("cities_distances.json", "w") as outfile:
-#     json.dump(all_distances_dict, outfile)
+city_targets_path = 'air_strike_targets.csv'
+all_cities_coordinates = get_city_lat_lon(load_files.csv_read_dict(city_targets_path))
+all_distances_dict = calc_all_cities_distance(JLM_lat_lon[0], JLM_lat_lon[1], all_cities_coordinates)
+print(all_distances_dict)
+
+# dump the distances to json file, so that i won't have to use api requests
+with open("cities_distances.json", "w") as outfile:
+    json.dump(all_distances_dict, outfile)
 

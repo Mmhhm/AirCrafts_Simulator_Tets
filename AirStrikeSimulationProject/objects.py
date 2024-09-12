@@ -52,7 +52,7 @@ def creat_pilots(file_path):
 
 # print(load_json('pilots.json'))
 
-all_pilots_obj = creat_pilots('pilots.json')
+
 
 
 def creat_aircrafts(file_path):
@@ -67,7 +67,7 @@ def creat_aircrafts(file_path):
         aircrafts_obj_list.append(aircraft_obj)
     return aircrafts_obj_list
 
-all_aircrafts_obj = creat_aircrafts('aircrafts.json')
+
 
 
 city_targets_dict =  csv_read_dict(city_targets_path)
@@ -79,15 +79,22 @@ def add_distance(cities_path, cities_distance_path):
         city['distance'] = distance_dict[city['City']]
     return city_targets_dict
 
-added_dis = add_distance('C:\\Users\\mkf\\Desktop\\IDF DATA Course\\Tests\\Test_12_9_24\\AirStrikeSimulationProject\\air_strike_targets.csv', 'C:\\Users\\mkf\\Desktop\\IDF DATA Course\\Tests\\Test_12_9_24\\AirStrikeSimulationProject\\cities_distances.json')
 
 def add_weather(added_dis, cities_weather_path):
-
     weather_dict = load_json(cities_weather_path)
     for city in added_dis:
         city['weather'] = weather_dict[city['City']]
     return added_dis
 
+def creat_cities(cities_dict):
+    cities_obj_list = []
+    for c in cities_dict:
+        city_obj = CityTarget(
+            c['City'],
+            c["Priority"],
+            c['distance'],
+            c["weather"],
+        )
+        cities_obj_list.append(city_obj)
+    return cities_obj_list
 
-full_city_lst = add_weather(added_dis, 'C:\\Users\\mkf\\Desktop\\IDF DATA Course\\Tests\\Test_12_9_24\\AirStrikeSimulationProject\\cities_distances.json')
-print(full_city_lst)

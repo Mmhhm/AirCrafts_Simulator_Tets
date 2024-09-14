@@ -1,11 +1,17 @@
 from objects import *
 
+# Paths
+pilots_path = 'pilots.json'
+aircrafts_path = 'aircrafts.json'
+cities_path = 'C:\\Users\\mkf\\Desktop\\IDF DATA Course\\Tests\\Test_12_9_24\\AirStrikeSimulationProject\\air_strike_targets.csv'
+targets_distance_path = 'C:\\Users\\mkf\\Desktop\\IDF DATA Course\\Tests\\Test_12_9_24\\AirStrikeSimulationProject\\cities_distances.json'
+targets_weather_path = 'C:\\Users\\mkf\\Desktop\\IDF DATA Course\\Tests\\Test_12_9_24\\AirStrikeSimulationProject\\cities_weather.json'
 
-all_pilots_obj = creat_pilots('pilots.json')
-all_aircrafts_obj = creat_aircrafts('aircrafts.json')
+all_pilots_obj = creat_pilots(pilots_path)
+all_aircrafts_obj = creat_aircrafts(aircrafts_path)
 
-added_dis = add_distance('C:\\Users\\mkf\\Desktop\\IDF DATA Course\\Tests\\Test_12_9_24\\AirStrikeSimulationProject\\air_strike_targets.csv', 'C:\\Users\\mkf\\Desktop\\IDF DATA Course\\Tests\\Test_12_9_24\\AirStrikeSimulationProject\\cities_distances.json')
-full_city_lst = add_weather(added_dis, 'C:\\Users\\mkf\\Desktop\\IDF DATA Course\\Tests\\Test_12_9_24\\AirStrikeSimulationProject\\cities_weather.json')
+added_dis = add_distance(cities_path, targets_distance_path)
+full_city_lst = add_weather(added_dis, targets_weather_path)
 full_cities_obj_lst = creat_cities(full_city_lst)
 print(f'city list: {full_city_lst}')
 print(added_dis)
@@ -143,7 +149,11 @@ def calc_mission_score(all_missions):
 final_all_missions = (calc_mission_score(all_missions))
 
 # sorted missions in descending order
-sorted_missions = sorted(final_all_missions, key=lambda x: x.mission_score, reverse=True)
+sorted_missions = sorted(final_all_missions, key=lambda mission: mission.mission_score, reverse=True)
+
+# Create the full mission table
 write_final_table_to_csv(sorted_missions)
+
+
 
 

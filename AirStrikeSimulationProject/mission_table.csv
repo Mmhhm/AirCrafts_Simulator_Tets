@@ -1,4 +1,4 @@
-Target Name,Priority,"Assigned Pilot, Assigned AirCraft",Distance,Weather Conditions,Pilot Skill,Aircraft Speed,Fuel Capacity,Mission Fit Score
+Target Name,Priority,Assigned Pilot,Assigned AirCraft,Distance,Weather Conditions,Pilot Skill,Aircraft Speed,Fuel Capacity,Mission Fit Score
 Tehran,5,John Doe,F-16,1555,Clear,8,2400,5000,0.83
 Tehran,5,John Doe,F-35,1555,Clear,8,3000,6000,0.83
 Tehran,5,John Doe,MiG-29,1555,Clear,8,2450,4500,0.83

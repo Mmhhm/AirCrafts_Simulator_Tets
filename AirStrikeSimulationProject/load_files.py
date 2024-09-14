@@ -23,7 +23,7 @@ def load_json(file_path):
 def write_final_table_to_csv(all_missions):
     with open('mission_table.csv', 'w',) as file:
         writer = csv.writer(file)
-        writer.writerow(['Target Name', 'Priority', 'Assigned Pilot, Assigned AirCraft',
+        writer.writerow(['Target Name', 'Priority', 'Assigned Pilot', 'Assigned AirCraft',
                         'Distance', 'Weather Conditions', 'Pilot Skill', 'Aircraft Speed',
                          'Fuel Capacity', 'Mission Fit Score'])
         for m in all_missions:
